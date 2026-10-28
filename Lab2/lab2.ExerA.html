@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI & Web Dev Hackathon 2026</title>
+</head>
+<body>
+    <!-- Header Section: Event name and tagline -->
+    <header>
+        <h1>AI & Web Dev Hackathon 2026</h1>
+        <p>Innovate, Code, and Shape the Future</p>
+    </header>
+
+    <!-- Navigation Section: Internal jump links-->
+    <nav>
+        <ul>
+            <li><a href="#about">About the Event</a></li>
+            <li><a href="#schedule">Event Schedule</a></li>
+            <li><a href="#register">Registration</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section: Introducing speaker/activities -->
+    <section id="about">
+        <h2>About the Event</h2>
+        <div>
+            <h3>Keynote Speaker: Dr Alan Turing</h3>
+            <p>Pioneering research in artificial intelligence and machine learning, discussing the ethical boundaries of modern generative models.</p>
+        </div>
+        <div>
+            <h3>Activity highlight: 12-Hour Coding Sprint</h3>
+            <p>Student team up to build prototype web applications solving real world campus challenges using modern web technologies.</p>
+        </div>
+    </section>
+
+    <!-- Schedule Section: Table with rowspan and colspan -->
+    <section id="schedule">
+        <h2>Event Schedule</h2>
+        <table border="1">
+            <tr>
+                <th>Time</th>
+                <th>Activity</th>
+                <th>Venue</th>
+                <th>Person in Charge</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>08:30 AM - 09:00 AM</td>
+                <td>Participant Registration</td>
+                <td rowspan="2">Main Auditorium</td>
+                <td>Dr. Siti Aminah</td>
+            </tr>
+            <tr>
+                <td>09:00 AM - 10:30 AM</td>
+                <td>Keynote Speech & Briefing</td>
+                <td>Prof.John Doe</td>
+            </tr>
+            <tr>
+                <td>10:30 AM - 12:30 PM</td>
+                <td>Hackathon Coding Session 1</td>
+                <td>Lab Alpha</td>
+            </tr>
+            <tr>
+                <td>12:30 PM - 2:00 PM</td>
+                <td colspan="3">Lunch Break & Networking</td>
+            </tr>
+            <tr>
+                <td>2:00 PM - 4:30 PM</td>
+                <td>Hackathon Coding Session 2</td>
+                <td>Lab Alpha</td>
+                <td>Mr. Ahmad Faizal</td>
+            </tr>
+            <tr>
+                <td>4:30 PM - 5:30 PM</td>
+                <td>Project Pitching & Closing</td>
+                <td>Main Auditorium</td>
+                <td>Dr. Siti Aminah</td>
+            </tr>
+        </tbody>
+        </table>
+    </section>
+
+    <!-- Registration Section: Complete Registration Form -->
+    <section id="register">
+        <h2>Registration</h2>
+        <form action="register.html" method="post">
+            <label for="fullname">Full Name:</label><br>
+            <input type="text" id="fullname" name="fullname" required>
+        </p>
+        <p>
+            <label for="matric">Matric Number:</label><br>
+            <input type="text" id="matric" name="matric" required>
+        </p>
+        <p>
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="email" required>
+        </p>
+        <p>
+            <label>Year of Study:</label><br>
+            <input type="radio" id="year1" name="year_study" value="Year 1" required>
+            <label for="year1">Year 1</label><br>
+            <input type="radio" id="year2" name="year_study" value="Year 2" required>
+            <label for="year2">Year 2</label><br>
+            <input type="radio" id="year3" name="year_study" value="Year 3" required>
+            <label for="year3">Year 3</label><br>
+            <input type="radio" id="year4" name="year_study" value="Year 4" required>
+            <label for="year4">Year 4</label>
+        </p>
+        <p>
+            <label>Session to join:</label><br>
+            <input type="checkbox" id="sess1" name="sessions" value="Keynote" required>
+            <label for="sess1">Keynote Speech</label><br>
+            <input type="checkbox" id="sess2" name="sessions" value="Coding" required>
+            <label for="session2">Coding Session</label>
+            <input type="checkbox" id="sess3" name="sessions" value="Pitching" required>
+            <label for="sess3">Project Pitching</label>
+        </p>
+        <p>
+            <label for="faculty">Faculty / Programme:</label><br>
+            <select id="faculty" name="faculty">
+                <option value="FCSIT">Faculty of Computer Science and IT</option>
+                <option value="FOE">Faculty of Engineering</option>
+                <option value="FOB">Faculty of Business</option>
+                <option value="FOS">Faculty of Science</option>
+            </select>
+        </p>
+        <p>
+            <input type="submit" value="Register Now">
+        </p>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Organised by: Faculty of Computer Science and IT | &copy; 2026 University</p>
+    </footer>
+</body>
+</html>
