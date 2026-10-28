@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Profile Page - Lab Module 2</title>
+</head>
+<body>
+
+    <!-- Semantic Header -->
+    <header>
+        <h1>Welcome to My Personal Profile</h1>
+    </header>
+
+    <!-- Semantic Navigation -->
+    <nav>
+        <a href="#about">About Me</a> | 
+        <a href="#profile-table">Details</a> | 
+        <a href="#contact-form">Contact Form</a>
+    </nav>
+
+    <!-- Semantic Section & Article -->
+    <section>
+        <article id="about">
+            <h2>About This Page</h2>
+            <p>This is a personal profile webpage built as part of Lab Module 2, demonstrating tables, interactive forms, and semantic HTML structure.</p>
+        </article>
+
+        <article id="profile-table">
+            <h2>Personal Information Table</h2>
+            <table border="1">
+                <tr>
+                    <th>Attribute</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>John Doe</td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>Occupation</td>
+                    <td>Web Developer</td>
+                </tr>
+            </table>
+        </article>
+
+        <article id="contact-form">
+            <h2>User Information Form</h2>
+            <form action="submit_form.php" method="post">
+                <!-- Text Inputs -->
+                <label for="fname">First Name:</label><br>
+                <input type="text" id="fname" name="firstname"><br><br>
+
+                <label for="lname">Last Name:</label><br>
+                <input type="text" id="lname" name="lastname"><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="text" id="email" name="email"><br><br>
+
+                <!-- Radio Buttons for Gender -->
+                <label>Gender:</label><br>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label><br>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label><br><br>
+
+                <!-- Checkboxes for Hobbies -->
+                <label>Select your hobbies:</label><br>
+                <input type="checkbox" id="hobby1" name="hobby1" value="Reading">
+                <label for="hobby1">Reading</label><br>
+                <input type="checkbox" id="hobby2" name="hobby2" value="Gaming">
+                <label for="hobby2">Gaming</label><br><br>
+
+                <!-- Submit Button -->
+                <input type="submit" value="Submit">
+            </form>
+        </article>
+    </section>
+
+    <!-- Semantic Footer -->
+    <footer>
+        <p>Copyright &copy; 2026 My Web Page</p>
+    </footer>
+
+</body>
+</html>
