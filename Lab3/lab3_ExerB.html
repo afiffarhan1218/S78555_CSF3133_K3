@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Ticket Booking</title>
+</head>
+<body>
+
+    <!-- 
+      Error Identification List (Part 1):
+      - Error 1 (Line 1): Incomplete DOCTYPE declaration, corrected to <!DOCTYPE html>
+      - Error 2 (Line 9): Mismatched heading and span tags in <h1>e-Ticket <span>Your Campus Cinema</h1></span>, corrected to close <span> first
+      - Error 3 (Line 11): Used <span id="content"> instead of a block container like <div id="content"> for block elements
+      - Error 4 (Line 14): oninput performed string concatenation ("2" + "3" = "23"), corrected by wrapping values in Number()
+      - Error 5 (Line 18): Typo in email input type ("emial"), corrected to type="email"
+      - Error 6 (Lines 22-23): Datalist ID mismatch (input had list="movies", datalist had id="movielist"), standardized to id="movies"
+      - Error 7 (Lines 31, 36): Range slider had invalid attributes (min="5" max="1"), corrected to min="1" max="5"
+      - Error 8 (Line 33): Output for attribute had mismatch ("adult kid"), corrected to match input IDs ("adult child")
+      - Error 9 (Line 38): Capitalized copyright entity (&Copy;), corrected to lowercase &copy;
+    -->
+
+    <!-- Header Section -->
+    <div id="header">
+        <h1>e-Ticket <span>Your Campus Cinema</span></h1>
+    </div>
+
+    <!-- Content Section -->
+    <div id="content">
+        <h2>Book Your Ticket</h2>
+        <p>Promotion: tickets &lt; RM10 for students &amp; staff!</p>
+        
+        <form action="booking.php" method="POST" oninput="total.value = Number(adult.value) + Number(child.value); price.value = (Number(adult.value) * 12) + (Number(child.value) * 8)">
+            
+            <!-- Name Input -->
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required autofocus><br><br>
+
+            <!-- E-mail Input -->
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="example@domain.com" required><br><br>
+
+            <!-- Phone Number Input (Added for Part 2) -->
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="012-3456789" required><br><br>
+
+            <!-- Show Date Input -->
+            <label for="date">Show date: </label>
+            <input type="date" id="date" name="date" required><br><br>
+
+            <!-- Show Time Input (Added for Part 2) -->
+            <label for="time">Show Time: </label>
+            <input type="time" id="time" name="time" required><br><br>
+
+            <!-- Movie Selection with Datalist -->
+            <label for="movie">Movie:</label>
+            <input id="movie" name="movie" list="movies" placeholder="Select or type movie..." required><br>
+            <datalist id="movies">
+                <option value="Kudrat 1968">
+                <option value="Projek High Council">
+                <option value="Kahar the Movie">
+            </datalist><br>
+
+            <!-- Ticket Quantities -->
+            <label for="adult">Adult tickets (RM 12):</label>
+            <input type="number" id="adult" name="adult" min="0" value="0"><br><br>
+
+            <label for="child">Child tickets (RM 8):</label>
+            <input type="number" id="child" name="child" min="0" value="0"><br><br>
+
+            <!-- Service Rating Range Slider -->
+            <label for="rating">Rate our service: </label>
+            <input type="range" id="rating" name="rating" min="1" max="5"><br><br>
+
+            <!-- Outputs for Total Tickets and Total Price -->
+            <p>Total tickets: <output name="total" for="adult child">0</output></p>
+            <p>Total Price (RM): <output name="price" for="adult child">0.00</output></p><br>
+
+            <!-- Submit Button -->
+            <input type="submit" value="Book Now">
+
+        </form>
+    </div>
+
+    <!-- Sidebar Section (Added for Part 2) -->
+    <div id="sidebar">
+        <h3>Now Showing</h3>
+        <ul>
+            <li><strong>Kudrat 1968</strong> - <span style="color:green;">PG-18</span> | <a href="trailer1.html" target="_blank">Watch Trailer</a></li>
+            <li><strong>Projek High Council</strong> - <span style="color:blue;">U</span> | <a href="trailer2.html" target="_blank">Watch Trailer</a></li>
+            <li><strong>Kahar the Movie</strong> - <span style="color:red;">18</span> | <a href="trailer3.html" target="_blank">Watch Trailer</a></li>
+        </ul>
+    </div>
+
+    <!-- Footer Section -->
+    <div id="footer">
+        <p>e-Ticket&reg; &ndash; Campus Cinema &lt; RM10 every Tuesday</p>
+        <p>&copy; 2026 CineKampus. All rights reserved.</p>
+    </div>
+
+</body>
+</html>
