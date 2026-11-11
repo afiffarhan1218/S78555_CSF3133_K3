@@ -1,61 +1,477 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-    <!-- Title -->
-    <title>Directory of My Lab Project</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directory of My Lab Projects | S78555</title>
+
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Glassmorphism effects and custom scrollbars */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .dark .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .dark ::webkit-scrollbar-thumb {
+            background: #334155;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
 </head>
-<body>
-    <h1>List of Lab Projects</h1>
-    <p>Name: Muhammad Afif Farhan Bin Mohd Mulyadi<br>
-        Student ID: S78555<br>
-        Group: K3<br>
-        Lecturer: Dr. Ily Amalina<br></p>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans min-h-screen transition-colors duration-300 flex flex-col justify-between">
 
-    <h2>Lab Exercises</h2>
-    <!-- Lab 1 Exercises -->
-    <dl>
-        <h2>Lab 1:</h2>
-        <dd><a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab1/lab1_ExerA.html">Exercise A</a></dd>
-        <dd><a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab1/lab1_ExerB.html">Exercise B</a></dd>
-        <dd><a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab1/contact.html">Exercise B</a></dd>
-    </dl>
+    <!-- Top Navigation Header -->
+    <header class="sticky top-0 z-50 glass-nav border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-violet-500 flex items-center justify-center text-white font-heading font-bold text-xl shadow-md shadow-brand-500/20">
+                    AF
+                </div>
+                <div>
+                    <h1 class="font-heading font-bold text-lg leading-tight tracking-tight text-slate-900 dark:text-white">CSF3133 Web Dev</h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Lab Project Hub</p>
+                </div>
+            </div>
 
-    <!-- Lab 2 Exercises -->
-    <dl>
-        <h2>Lab 2:</h2>
-        <dd><a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab2/lab2.ExerA.html">Exercise A</a></dd>
-        <dd><a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab2/lab2.ExerB.html">Exercise B</a></dd>
-    </dl>
+            <div class="flex items-center gap-3">
+                <!-- Dark Mode Toggle Button -->
+                <button id="themeToggleBtn" onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-200/70 dark:bg-slate-800/70 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500" aria-label="Toggle Theme">
+                    <i id="themeIcon" class="fas fa-moon text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
-    <!-- Lab 3 Exercises -->
-    <dl>
-        <h2>Lab 3:</h2>
-        <dd><a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab3/lab3_ExerA.html">Exercise A</a></dd>
-        <dd><a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab3/lab3_ExerB.html">Exercise B</a></dd>
-    </dl>
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow">
+        
+        <!-- Hero & Profile Section -->
+        <section class="mb-10 relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-slate-900 to-purple-950 text-white p-6 sm:p-8 md:p-10 shadow-2xl border border-white/10">
+            <!-- Decorative BG Circles -->
+            <div class="absolute -right-16 -top-16 w-64 h-64 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute right-1/3 -bottom-20 w-80 h-80 bg-purple-500/15 rounded-full blur-3xl pointer-events-none"></div>
 
-     <!-- Lab 4 Exercises -->
-    <dl>
-        <h2>Lab 4:</h2>
-        <dd><a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab4/lab4_ExerA.html">Exercise A</a></dd>
-        <dd><a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab4/lab4_ExerB.html">Exercise B</a></dd>
-        <dd><a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab4/cafe.css">Exercise B</a></dd>
-    </dl>
+            <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="space-y-3">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-semibold tracking-wide uppercase border border-brand-500/30">
+                        <i class="fas fa-graduation-cap"></i> Student Directory
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-white">
+                        Muhammad Afif Farhan Bin Mohd Mulyadi
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base max-w-xl">
+                        Central repository for CSF3133 Web Development course lab exercises and Wonderbuuk project modules.
+                    </p>
+                </div>
 
-    <h2>Lab Wonderbuuk</h2>
+                <!-- Info Badges Matrix -->
+                <div class="grid grid-cols-2 gap-3 w-full md:w-auto min-w-[260px] text-xs sm:text-sm">
+                    <div class="bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/10 flex flex-col">
+                        <span class="text-slate-400 text-xs flex items-center gap-1.5"><i class="fas fa-id-card text-brand-400"></i> Student ID</span>
+                        <span class="font-bold text-white text-base mt-0.5">S78555</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/10 flex flex-col">
+                        <span class="text-slate-400 text-xs flex items-center gap-1.5"><i class="fas fa-users text-purple-400"></i> Group</span>
+                        <span class="font-bold text-white text-base mt-0.5">K3</span>
+                    </div>
+                    <div class="col-span-2 bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/10 flex flex-col">
+                        <span class="text-slate-400 text-xs flex items-center gap-1.5"><i class="fas fa-user-tie text-emerald-400"></i> Lecturer</span>
+                        <span class="font-bold text-white text-sm mt-0.5">Dr. Ily Amalina</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <dl>
-        <h2>Lab 1:</h2>
-        <dd><a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab1WonderBuuk/lab1.html">Lab 1</a></dd>
-    </dl>
-    <dl>
-        <h2>Lab 2:</h2>
-        <dd><a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab2WonderBuuk/lab2.html">Lab 2</a></dd>
-    </dl>
-    <dl>
-        <h2>Lab 3:</h2>
-        <dd><a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab3WonderBuuk/lab3.html">Lab 3</a></dd>
-    </dl>
+        <!-- Search & Category Filter Toolbar -->
+        <section class="mb-8 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+            <!-- Filter Tabs -->
+            <div class="flex items-center gap-2 p-1.5 bg-slate-200/60 dark:bg-slate-900/60 rounded-2xl border border-slate-300/50 dark:border-slate-800/80 overflow-x-auto">
+                <button onclick="filterCategory('all')" id="tab-all" class="filter-tab active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 bg-brand-600 text-white shadow-sm">
+                    <i class="fas fa-th-large mr-1.5"></i> All Links
+                </button>
+                <button onclick="filterCategory('exercises')" id="tab-exercises" class="filter-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+                    <i class="fas fa-laptop-code mr-1.5"></i> Lab Exercises
+                </button>
+                <button onclick="filterCategory('wonderbuuk')" id="tab-wonderbuuk" class="filter-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+                    <i class="fas fa-book-open mr-1.5"></i> Wonderbuuk
+                </button>
+            </div>
+
+            <!-- Live Search Bar -->
+            <div class="relative flex-grow md:max-w-xs">
+                <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                <input type="text" id="searchInput" oninput="filterCards()" placeholder="Search lab or exercise..." 
+                    class="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 shadow-sm transition-all">
+            </div>
+        </section>
+
+        <!-- Dynamic Empty Search Results Notice -->
+        <div id="noResults" class="hidden text-center py-16">
+            <div class="w-16 h-16 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
+                <i class="fas fa-search text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-700 dark:text-slate-300">No matching projects found</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Try adjusting your search query or switching filters.</p>
+        </div>
+
+        <!-- Section 1: Standard Lab Exercises -->
+        <div id="section-exercises" class="mb-12 project-section">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2.5 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 font-bold">
+                    <i class="fas fa-code text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-heading font-bold text-slate-900 dark:text-white">Lab Exercises</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Weekly coursework, practice sheets, and HTML/CSS styling modules</p>
+                </div>
+            </div>
+
+            <!-- Responsive Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                
+                <!-- LAB 1 CARD -->
+                <div class="card-item glass-card p-5 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between group" data-category="exercises" data-keywords="lab 1 exercise a b contact html">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider">Lab 01</span>
+                            <i class="fas fa-folder-open text-slate-400 group-hover:text-brand-500 transition-colors"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-3">HTML Fundamentals</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li>
+                                <a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab1/lab1_ExerA.html" target="_blank" class="flex items-center justify-between p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/50 hover:bg-brand-500 hover:text-white dark:hover:bg-brand-600 text-slate-700 dark:text-slate-300 transition-all font-medium text-xs">
+                                    <span class="flex items-center gap-2"><i class="fas fa-file-code"></i> Exercise A</span>
+                                    <i class="fas fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab1/lab1_ExerB.html" target="_blank" class="flex items-center justify-between p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/50 hover:bg-brand-500 hover:text-white dark:hover:bg-brand-600 text-slate-700 dark:text-slate-300 transition-all font-medium text-xs">
+                                    <span class="flex items-center gap-2"><i class="fas fa-file-code"></i> Exercise B</span>
+                                    <i class="fas fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab1/contact.html" target="_blank" class="flex items-center justify-between p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/50 hover:bg-brand-500 hover:text-white dark:hover:bg-brand-600 text-slate-700 dark:text-slate-300 transition-all font-medium text-xs">
+                                    <span class="flex items-center gap-2"><i class="fas fa-address-book"></i> Contact Page</span>
+                                    <i class="fas fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- LAB 2 CARD -->
+                <div class="card-item glass-card p-5 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between group" data-category="exercises" data-keywords="lab 2 exercise a b html forms tables">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider">Lab 02</span>
+                            <i class="fas fa-folder-open text-slate-400 group-hover:text-brand-500 transition-colors"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-3">Forms & Structure</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li>
+                                <a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab2/lab2.ExerA.html" target="_blank" class="flex items-center justify-between p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/50 hover:bg-brand-500 hover:text-white dark:hover:bg-brand-600 text-slate-700 dark:text-slate-300 transition-all font-medium text-xs">
+                                    <span class="flex items-center gap-2"><i class="fas fa-file-code"></i> Exercise A</span>
+                                    <i class="fas fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab2/lab2.ExerB.html" target="_blank" class="flex items-center justify-between p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/50 hover:bg-brand-500 hover:text-white dark:hover:bg-brand-600 text-slate-700 dark:text-slate-300 transition-all font-medium text-xs">
+                                    <span class="flex items-center gap-2"><i class="fas fa-file-code"></i> Exercise B</span>
+                                    <i class="fas fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- LAB 3 CARD -->
+                <div class="card-item glass-card p-5 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between group" data-category="exercises" data-keywords="lab 3 exercise a b layout css styling">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider">Lab 03</span>
+                            <i class="fas fa-folder-open text-slate-400 group-hover:text-brand-500 transition-colors"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-3">CSS Layout & Styling</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li>
+                                <a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab3/lab3_ExerA.html" target="_blank" class="flex items-center justify-between p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/50 hover:bg-brand-500 hover:text-white dark:hover:bg-brand-600 text-slate-700 dark:text-slate-300 transition-all font-medium text-xs">
+                                    <span class="flex items-center gap-2"><i class="fas fa-file-code"></i> Exercise A</span>
+                                    <i class="fas fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab3/lab3_ExerB.html" target="_blank" class="flex items-center justify-between p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/50 hover:bg-brand-500 hover:text-white dark:hover:bg-brand-600 text-slate-700 dark:text-slate-300 transition-all font-medium text-xs">
+                                    <span class="flex items-center gap-2"><i class="fas fa-file-code"></i> Exercise B</span>
+                                    <i class="fas fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- LAB 4 CARD (Fixed Title Bug from original source) -->
+                <div class="card-item glass-card p-5 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between group" data-category="exercises" data-keywords="lab 4 exercise a b cafe css advanced stylesheet styling">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider">Lab 04</span>
+                            <i class="fas fa-folder-open text-slate-400 group-hover:text-brand-500 transition-colors"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-3">Advanced CSS & Cafe Project</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li>
+                                <a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab4/lab4_ExerA.html" target="_blank" class="flex items-center justify-between p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/50 hover:bg-brand-500 hover:text-white dark:hover:bg-brand-600 text-slate-700 dark:text-slate-300 transition-all font-medium text-xs">
+                                    <span class="flex items-center gap-2"><i class="fas fa-file-code"></i> Exercise A</span>
+                                    <i class="fas fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab4/lab4_ExerB.html" target="_blank" class="flex items-center justify-between p-2 rounded-xl bg-slate-100/70 dark:bg-slate-800/50 hover:bg-brand-500 hover:text-white dark:hover:bg-brand-600 text-slate-700 dark:text-slate-300 transition-all font-medium text-xs">
+                                    <span class="flex items-center gap-2"><i class="fas fa-file-code"></i> Exercise B</span>
+                                    <i class="fas fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab4/cafe.css" target="_blank" class="flex items-center justify-between p-2 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 hover:bg-amber-500 hover:text-white transition-all font-medium text-xs">
+                                    <span class="flex items-center gap-2"><i class="fas fa-file-lines"></i> Cafe CSS Stylesheet</span>
+                                    <i class="fas fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section 2: Lab Wonderbuuk Project -->
+        <div id="section-wonderbuuk" class="project-section">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2.5 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 font-bold">
+                    <i class="fas fa-book-bookmark text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-heading font-bold text-slate-900 dark:text-white">Lab Wonderbuuk</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Integrated web application components and continuous assignments</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                
+                <!-- WonderBuuk 1 -->
+                <div class="card-item glass-card p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group" data-category="wonderbuuk" data-keywords="wonderbuuk lab 1 project module">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-wider">Module 01</span>
+                        <div class="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-950 flex items-center justify-center text-purple-500">
+                            <i class="fas fa-book"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Wonderbuuk Phase 1</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">Initial template structure, main layout and core navigation page setup.</p>
+                    <a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab1WonderBuuk/lab1.html" target="_blank" class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-medium text-xs shadow-md shadow-purple-500/20 transition-all">
+                        Launch Lab 1 <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- WonderBuuk 2 -->
+                <div class="card-item glass-card p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group" data-category="wonderbuuk" data-keywords="wonderbuuk lab 2 project module">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-wider">Module 02</span>
+                        <div class="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-950 flex items-center justify-center text-purple-500">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Wonderbuuk Phase 2</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">Enhanced visual presentation, interactive elements and page styling integration.</p>
+                    <a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab2WonderBuuk/lab2.html" target="_blank" class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-medium text-xs shadow-md shadow-purple-500/20 transition-all">
+                        Launch Lab 2 <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- WonderBuuk 3 -->
+                <div class="card-item glass-card p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group" data-category="wonderbuuk" data-keywords="wonderbuuk lab 3 project module">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-wider">Module 03</span>
+                        <div class="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-950 flex items-center justify-center text-purple-500">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Wonderbuuk Phase 3</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">Advanced features, dynamic page sections, and finalized content integration.</p>
+                    <a href="https://afiffarhan1218.github.io/S78555_CSF3133_K3/Lab3WonderBuuk/lab3.html" target="_blank" class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-medium text-xs shadow-md shadow-purple-500/20 transition-all">
+                        Launch Lab 3 <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Sleek Footer -->
+    <footer class="mt-16 border-t border-slate-200 dark:border-slate-800 py-6 bg-slate-100/50 dark:bg-slate-900/40 text-slate-500 dark:text-slate-400 text-xs text-center transition-colors">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p>© CSF3133 Web Development — Muhammad Afif Farhan (S78555)</p>
+            <div class="flex items-center gap-4">
+                <a href="https://github.com/afiffarhan1218" target="_blank" class="hover:text-brand-500 transition-colors flex items-center gap-1.5">
+                    <i class="fab fa-github"></i> GitHub Profile
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Dark Mode Logic
+        function toggleTheme() {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('themeIcon');
+            
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                themeIcon.className = 'fas fa-sun text-lg text-amber-500';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                themeIcon.className = 'fas fa-moon text-lg';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Initialize Theme from system / localStorage preference
+        if (localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            document.documentElement.classList.remove('dark');
+            document.getElementById('themeIcon').className = 'fas fa-sun text-lg text-amber-500';
+        } else {
+            document.documentElement.classList.add('dark');
+            document.getElementById('themeIcon').className = 'fas fa-moon text-lg';
+        }
+
+        // Filtering by Category Tab
+        let activeCategory = 'all';
+
+        function filterCategory(cat) {
+            activeCategory = cat;
+            
+            // Update Active Tab Styling
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.classList.remove('bg-brand-600', 'text-white', 'shadow-sm');
+                tab.classList.add('text-slate-600', 'dark:text-slate-400');
+            });
+            
+            const selectedTab = document.getElementById(`tab-${cat}`);
+            if (selectedTab) {
+                selectedTab.classList.add('bg-brand-600', 'text-white', 'shadow-sm');
+                selectedTab.classList.remove('text-slate-600', 'dark:text-slate-400');
+            }
+
+            filterCards();
+        }
+
+        // Search & Filter Execution
+        function filterCards() {
+            const searchVal = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.card-item');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                const cardKeywords = card.getAttribute('data-keywords').toLowerCase();
+                const cardText = card.innerText.toLowerCase();
+
+                const matchesCategory = (activeCategory === 'all' || cardCategory === activeCategory);
+                const matchesSearch = (cardKeywords.includes(searchVal) || cardText.includes(searchVal));
+
+                if (matchesCategory && matchesSearch) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Toggle visibility of section titles if no children are visible
+            document.querySelectorAll('.project-section').forEach(section => {
+                const visibleCards = section.querySelectorAll('.card-item[style*="display: flex"]');
+                if (visibleCards.length === 0) {
+                    section.style.display = 'none';
+                } else {
+                    section.style.display = 'block';
+                }
+            });
+
+            // Toggle empty state message
+            const noResults = document.getElementById('noResults');
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+    </script>
 </body>
 </html>
