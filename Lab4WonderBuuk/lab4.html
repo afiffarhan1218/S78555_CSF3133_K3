@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Exercise 4 - Responsive Webpage</title>
+    
+    <!-- External CSS Link -->
+    <link rel="stylesheet" href="lab4.css">
+    
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fa;
+        }
+        header h1 {
+            text-decoration: overline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header and Navigation -->
+    <header>
+        <h1>Welcome to Lab Exercise 4</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#media">Media</a></li>
+                <li><a href="#form-section">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <section id="about">
+        <h2>About This Lab</h2>
+        <article>
+            <p>This webpage integrates semantic HTML5 elements, embedded media, and advanced CSS styling including text decoration and interactive link states.</p>
+        </article>
+    </section>
+
+    <!-- Media Section -->
+    <section id="media">
+        <h2>Embedded Media</h2>
+        <figure>
+            <video width="480" height="270" controls>
+                <source src="upinipin.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <figcaption>Sample Video Demonstration</figcaption>
+        </figure>
+    </section>
+
+    <!-- Interactive Elements Section (Form) -->
+    <section id="form-section">
+        <h2>User Information Form</h2>
+        <form class="styled-form" action="#" method="POST">
+            <div>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div style="margin-top: 10px;">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div style="margin-top: 10px;">
+                <label>Gender:</label><br>
+                <input type="radio" id="male" name="gender" value="Male" checked>
+                <label for="male">Male</label><br>
+                <input type="radio" id="female" name="gender" value="Female">
+                <label for="female">Female</label>
+            </div>
+
+            <div style="margin-top: 10px;">
+                <label>Favorite Hobbies:</label><br>
+                <input type="checkbox" id="hobby1" name="hobbies" value="Reading">
+                <label for="hobby1">Reading</label><br>
+                <input type="checkbox" id="hobby2" name="hobbies" value="Coding">
+                <label for="hobby2">Coding</label><br>
+                <input type="checkbox" id="hobby3" name="hobbies" value="Gaming">
+                <label for="hobby3">Gaming</label>
+            </div>
+
+            <div style="margin-top: 15px;">
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Lab Exercise 4</p>
+        <address>
+            Contact us at <a href="mailto:support@umt.edu.my">support@umt.edu.my</a>
+        </address>
+    </footer>
+
+</body>
+</html>
