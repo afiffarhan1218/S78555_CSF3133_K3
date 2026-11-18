@@ -1,0 +1,102 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fcfcfc;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background-image: url("paper.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+header h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.5rem;
+    color: #1B4F72;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+    margin-bottom: 10px;
+}
+header p {
+    color: #2C2C2C;
+    font-weight: 700;
+}
+
+nav {
+    background-color: #333;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    max-width: 900px;
+    margin: 0 auto;
+}
+li {
+    float: left;
+}
+li a {
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+li a.active {
+    background-color: #04AA6D;
+}
+
+main {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+#product {
+    border-collapse: collapse;
+    width: 100%;
+}
+#product td, #product th {
+    border: 1px solid #ddd;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#product th {
+    background-color: #04AA6D;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+}
+#product th.price-header, #product td.price-cell {
+    text-align: right;
+}
+#product tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+#product tr:hover {
+    background-color: #ddd;
+}
+
+footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    color: #555;
+}

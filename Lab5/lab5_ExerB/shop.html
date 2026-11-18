@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Campus Bookstore</title>
+   
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+    <!--Error log comment block as required-->
+    <!-- 
+      Error 1 (shop.html, Line 6): rel="stylesheets" corrected to rel="stylesheet"
+      Error 2 (shop.html, Line 18): style="color=#1B4F72;" corrected to style="color: #1B4F72;"
+      Error 3 (shop.css, Line 2): font-family 'Robotto' corrected to 'Roboto'
+      Error 4 (shop.css, Line 3): background-repeat 'no repeat' corrected to 'no-repeat'
+      Error 5 (shop.css, Line 5): 'bacground-position' corrected to 'background-position'
+      Error 6 (shop.css, Line 12): Floating background-color moved inside ul block
+      Error 7 (shop.css, Line 18): link display 'inline' corrected to 'block'
+      Error 8 (shop.css, Line 23): selector 'li:a:hover' corrected to 'li a:hover'
+      Error 9 (shop.css, Line 26): ID '#products' matched to HTML id 'product' & 'collapsed' fixed to 'collapse'
+      Error 10 (shop.css, Line 34): nth-child(2) corrected to nth-child(even)
+      Error 11 (shop.css, Line 37): pseudo-class 'hovered' corrected to 'hover'
+    -->
+
+    <header>
+        <h1>Campus Bookstore</h1>
+        <p>Textbooks, stationery and more for every student.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#books">Books</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div>
+            <table id="product">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Category</th>
+                        <th class="price-header">Price (RM)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Web Design Basics</td>
+                        <td>Textbook</td>
+                        <td class="price-cell">45.00</td>
+                    </tr>
+                    <tr>
+                        <td>A4 Notebook</td>
+                        <td>Stationery</td>
+                        <td class="price-cell">6.50</td>
+                    </tr>
+                    <tr>
+                        <td>USB Drive 32GB</td>
+                        <td>Gadget</td>
+                        <td class="price-cell">25.00</td>
+                    </tr>
+                    <tr>
+                        <td>Highlighter Set</td>
+                        <td>Stationery</td>
+                        <td class="price-cell">9.90</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Campus Bookstore</p>
+    </footer>
+</body>
+</html>
