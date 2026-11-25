@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Web Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <!-- Header introducing the quiz -->
+        <header>
+            <h1>Web Development Quiz</h1>
+            <p>Test your knowledge of HTML, CSS, and JavaScript! You have 15 seconds per question.</p>
+        </header>
+
+        <!-- Main section for timer, questions, options, and navigation -->
+        <main id="quiz-section">
+            <div class="quiz-info">
+                <span id="question-counter">Question 1 of 5</span>
+                <div class="timer-box">Time Left: <span id="timer">15</span>s</div>
+            </div>
+
+            <h2 id="question-text">Question goes here</h2>
+
+            <div id="options-container" class="options-grid">
+                <!-- Answer buttons will be dynamically inserted here -->
+            </div>
+
+            <!-- Feedback section -->
+            <section id="feedback-section" class="feedback hidden">
+                <p id="feedback-text"></p>
+            </section>
+
+            <!-- Navigation & Action Buttons -->
+            <div class="controls">
+                <button id="submit-btn" class="btn primary-btn" disabled>Submit Answer</button>
+                <button id="next-btn" class="btn secondary-btn hidden">Next Question</button>
+            </div>
+        </main>
+
+        <!-- Footer to display final score and restart option -->
+        <footer id="score-footer" class="hidden">
+            <h2>Quiz Completed!</h2>
+            <p id="final-score">Your Score: 0 / 5</p>
+            <button id="restart-btn" class="btn primary-btn">Restart Quiz</button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
