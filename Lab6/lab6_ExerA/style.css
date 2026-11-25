@@ -1,0 +1,140 @@
+/* General page layout and typography */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* Header styling */
+header {
+    background-color: #164263;
+    color: white;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+header h1 {
+    margin: 0 0 8px 0;
+}
+
+header p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Card containers for each section */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+/* Input field styling */
+input[type="text"] {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 8px;
+    width: 200px;
+}
+
+/* Button styling with hover effect */
+button {
+    padding: 9px 16px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    margin-right: 6px;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #1c5980;
+}
+
+/* Gameplay arena and choice images */
+.arena {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.choice-box {
+    text-align: center;
+}
+
+.choice-box h2 {
+    font-size: 1.17rem;
+    margin: 0 0 10px 0;
+}
+
+.choice-box img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #fafafa;
+}
+
+.vs-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #777;
+}
+
+/* Result announcement and scoreboard */
+#result {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+.scoreboard span {
+    margin-right: 20px;
+    font-size: 1.05rem;
+}
+
+#summaryText {
+    font-weight: bold;
+    color: #164263;
+    margin-top: 10px;
+}
+
+/* History table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+th, td {
+    border: 1px solid #cccccc;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #164263;
+    color: white;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
